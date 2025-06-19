@@ -11,11 +11,16 @@ const navItems = [
   { label: 'Blog', href: '/blog' },
   { label: 'Congresos', href: '/congresos' },
 ];
+
+// Función para obtener la URL base
+const getBaseUrl = () => {
+  return import.meta.env.BASE_URL;
+};
 ---
 
 <header class="bg-white shadow-md">
   <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-    <a href="/" class="flex font-serif font-bold items-center">
+    <a href={getBaseUrl()} class="flex font-serif font-bold items-center">
       <Image 
         src={logoImg} 
         alt="Company Logo Image" 
@@ -27,12 +32,12 @@ const navItems = [
     </a>
     <nav class="hidden md:flex space-x-6">
       {navItems.map(item => (
-        <a href={item.href} class="text-gray-700 hover:text-primary-500 transition duration-150 ease-in-out">
+        <a href={getBaseUrl() + item.href.slice(1)} class="text-gray-700 hover:text-primary-500 transition duration-150 ease-in-out">
           {item.label}
         </a>
       ))}
     </nav>
-    <a href="/contacto" class="bg-primary-500 text-white px-4 py-2 rounded hover:bg-primary-600 transition duration-150 ease-in-out">
+    <a href={getBaseUrl() + "contacto"} class="bg-primary-500 text-white px-4 py-2 rounded hover:bg-primary-600 transition duration-150 ease-in-out">
       Contacto
     </a>
   </div>
