@@ -3,83 +3,144 @@ import { Image } from 'astro:assets';
 import heroImg from '../assets/hero-image.png';
 ---
 
-<section class="bg-white py-20">
+<section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
   <div class="container mx-auto px-4">
     <div class="flex flex-col lg:flex-row items-center">
       <div class="lg:w-1/2 lg:pr-12">
+        <div class="mb-4">
+          <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+            🧬 Investigación Científica
+          </span>
+        </div>
         <h1 class="text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6">
-          The first daily care motivation platform
+          Laboratorio de <span class="text-blue-600">Hormonas y Conducta</span>
         </h1>
-        <p class="text-xl text-gray-700 mb-8">
-          Your Company uses behavioral science to help people create, establish, and maintain daily behaviors that improve their lives. Health plans see reduced utilization costs, substantial health outcomes, increased quality and Star Ratings.
+        <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+          Investigación interdisciplinaria en <strong>neuroendocrinología</strong>, <strong>química teórica</strong> y <strong>análisis conductual</strong>. 
+          Desarrollamos estudios sobre diabetes, docking molecular, ecotoxicología y diseño de software científico.
         </p>
+        
+        <!-- Botones de acción -->
+        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+          <a href="/investigacion" 
+             class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 text-center">
+            🔬 Ver Investigación
+          </a>
+          <a href="/publicaciones" 
+             class="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition duration-300 text-center">
+            📚 Publicaciones
+          </a>
+          <a href="/recursos" 
+             class="border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300 text-center">
+            💾 Recursos
+          </a>
+        </div>
+
+        <!-- Métricas destacadas -->
+        <div class="grid grid-cols-3 gap-4 text-center">
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-2xl font-bold text-blue-600">15+</div>
+            <div class="text-sm text-gray-600">Publicaciones</div>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-2xl font-bold text-green-600">8</div>
+            <div class="text-sm text-gray-600">Líneas de Investigación</div>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-2xl font-bold text-purple-600">25+</div>
+            <div class="text-sm text-gray-600">Tesis Dirigidas</div>
+          </div>
+        </div>
       </div>
+      
       <div class="lg:w-1/2 mt-10 lg:mt-0 relative">
-        <Image 
-          src={heroImg} 
-          alt="Happy family" 
-          class="rounded-lg shadow-xl"
-          width={600}
-          height={400}
-        />
-        <button
-          id="playButton"
-          class="absolute bottom-4 left-4 bg-white bg-opacity-80 text-gray-800 px-4 py-2 rounded-full flex items-center space-x-2 hover:bg-opacity-100 transition duration-300"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <span>See how this works</span>
-        </button>
+        <div class="relative">
+          <Image 
+            src={heroImg} 
+            alt="Laboratorio de Investigación - Hormonas y Conducta" 
+            class="rounded-xl shadow-2xl"
+            width={600}
+            height={400}
+          />
+          <!-- Overlay con información científica -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
+          
+          <!-- Botón para tour virtual o video explicativo -->
+          <button
+            id="labTourButton"
+            class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm text-gray-800 px-4 py-3 rounded-full flex items-center space-x-2 hover:bg-white hover:shadow-lg transition duration-300"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="font-medium">Tour del Laboratorio</span>
+          </button>
+
+          <!-- Indicadores flotantes de tecnologías -->
+          <div class="absolute top-4 right-4 space-y-2">
+            <div class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-gray-700">
+              🧪 Docking Molecular
+            </div>
+            <div class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-gray-700">
+              🐭 Modelos Murinos
+            </div>
+            <div class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-gray-700">
+              💻 Química Teórica
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Video Modal -->
-<div id="videoModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-  <div class="bg-white rounded-lg p-8 max-w-3xl w-full">
-    <div class="flex justify-between items-center mb-4">
-      <h3 class="text-2xl font-bold">How Your Co. Works</h3>
-      <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+<!-- Modal para Tour del Laboratorio -->
+<div id="labTourModal" class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center hidden">
+  <div class="bg-white rounded-xl p-8 max-w-4xl w-full mx-4">
+    <div class="flex justify-between items-center mb-6">
+      <h3 class="text-2xl font-bold text-gray-900">🔬 Tour Virtual del Laboratorio</h3>
+      <button id="closeTourModal" class="text-gray-500 hover:text-gray-700 p-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
-    <div class="aspect-w-16 aspect-h-9">
+    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
       <iframe 
-        id="youtubeVideo"
-        class="w-full h-full"
-        src="https://www.youtube.com/embed/f4D55v97wLM"
+        id="labTourVideo"
+        class="w-full h-96"
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="Tour del Laboratorio de Hormonas y Conducta"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
     </div>
+    <p class="mt-4 text-gray-600 text-center">
+      Conoce nuestras instalaciones, equipos de investigación y metodologías científicas
+    </p>
   </div>
 </div>
 
 <script>
-  // components/Hero.astro
-  const playButton = document.getElementById('playButton');
-  const videoModal = document.getElementById('videoModal');
-  const closeModal = document.getElementById('closeModal');
-  const youtubeVideo = document.getElementById('youtubeVideo') as HTMLIFrameElement;
+  const labTourButton = document.getElementById('labTourButton');
+  const labTourModal = document.getElementById('labTourModal');
+  const closeTourModal = document.getElementById('closeTourModal');
+  const labTourVideo = document.getElementById('labTourVideo') as HTMLIFrameElement;
 
-  playButton?.addEventListener('click', () => {
-    videoModal?.classList.remove('hidden');
+  labTourButton?.addEventListener('click', () => {
+    labTourModal?.classList.remove('hidden');
   });
 
-  closeModal?.addEventListener('click', () => {
-    videoModal?.classList.add('hidden');
-    youtubeVideo.contentWindow?.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+  closeTourModal?.addEventListener('click', () => {
+    labTourModal?.classList.add('hidden');
+    labTourVideo.contentWindow?.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
   });
 
-  videoModal?.addEventListener('click', (e) => {
-    if (e.target === videoModal) {
-      videoModal.classList.add('hidden');
-      youtubeVideo.contentWindow?.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+  labTourModal?.addEventListener('click', (e) => {
+    if (e.target === labTourModal) {
+      labTourModal.classList.add('hidden');
+      labTourVideo.contentWindow?.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
     }
   });
 </script>

@@ -3,11 +3,13 @@ import { Image } from 'astro:assets';
 import logoImg from '../assets/logo.png';
 
 const navItems = [
-  { label: 'Solution', href: '#' },
-  { label: 'Who We Help', href: '#' },
-  { label: 'Outcomes', href: '#' },
-  { label: 'Company', href: '#' },
-  { label: 'Resources', href: '#' },
+  { label: 'Inicio', href: '/' },
+  { label: 'Investigación', href: '/investigacion' },
+  { label: 'Publicaciones', href: '/publicaciones' },
+  { label: 'Equipo', href: '/equipo' },
+  { label: 'Recursos', href: '/recursos' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Congresos', href: '/congresos' },
 ];
 ---
 
@@ -21,7 +23,7 @@ const navItems = [
         width={48}
         height={48}
       />
-      <span class="ml-2">Your Company</span>
+      <span class="ml-2">Hormonas y Conducta</span>
     </a>
     <nav class="hidden md:flex space-x-6">
       {navItems.map(item => (
@@ -30,8 +32,8 @@ const navItems = [
         </a>
       ))}
     </nav>
-    <a href="/#" class="bg-primary-500 text-white px-4 py-2 rounded hover:bg-primary-600 transition duration-150 ease-in-out">
-      Contact Us
+    <a href="/contacto" class="bg-primary-500 text-white px-4 py-2 rounded hover:bg-primary-600 transition duration-150 ease-in-out">
+      Contacto
     </a>
   </div>
 </header>

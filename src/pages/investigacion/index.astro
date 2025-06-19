@@ -1,0 +1,314 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// Tipo para los colores
+type ColorKey = 'blue' | 'purple' | 'green' | 'emerald' | 'indigo' | 'amber' | 'gray' | 'pink';
+
+// Interfaz para las líneas de investigación
+interface ResearchLine {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  color: ColorKey;
+  methods: string[];
+  publications: number;
+  active: boolean;
+}
+
+// Datos de las líneas de investigación
+const researchLines: ResearchLine[] = [
+  {
+    id: 'diabetes-murinos',
+    title: 'Diabetes en Modelos Murinos',
+    description: 'Investigación de mecanismos neuroendocrinos en modelos experimentales de diabetes, evaluando el impacto hormonal en la conducta y metabolismo.',
+    icon: '🐭',
+    color: 'blue',
+    methods: ['Modelos in vivo', 'Análisis glucémico', 'Pruebas conductuales'],
+    publications: 3,
+    active: true
+  },
+  {
+    id: 'docking-molecular',
+    title: 'Docking Molecular & Dinámica',
+    description: 'Simulación computacional de interacciones moleculares para el diseño de fármacos y comprensión de mecanismos de acción hormonal.',
+    icon: '🧪',
+    color: 'purple',
+    methods: ['AutoDock', 'GROMACS', 'PyMOL'],
+    publications: 5,
+    active: true
+  },
+  {
+    id: 'quimica-teorica',
+    title: 'Química Teórica',
+    description: 'Aplicación de métodos computacionales cuánticos para el estudio de propiedades moleculares y reactividad química.',
+    icon: '💻',
+    color: 'green',
+    methods: ['DFT', 'Ab initio', 'Gaussian'],
+    publications: 4,
+    active: true
+  },
+  {
+    id: 'ecotoxicologia',
+    title: 'Ecotoxicología & Energías Libres',
+    description: 'Evaluación del impacto ambiental de contaminantes y cálculo de energías libres de interacción molecular.',
+    icon: '🌿',
+    color: 'emerald',
+    methods: ['Ensayos de toxicidad', 'Cálculos termodinámicos', 'Análisis ambiental'],
+    publications: 2,
+    active: true
+  },
+  {
+    id: 'pruebas-conductuales',
+    title: 'Análisis Conductual',
+    description: 'Evaluación de comportamiento animal mediante pruebas estandarizadas como el laberinto de Barnes para estudios cognitivos.',
+    icon: '🧠',
+    color: 'indigo',
+    methods: ['Laberinto de Barnes', 'Campo abierto', 'Análisis de memoria'],
+    publications: 3,
+    active: true
+  },
+  {
+    id: 'extractos-vegetales',
+    title: 'Extractos Vegetales',
+    description: 'Investigación de compuestos bioactivos de plantas con potencial terapéutico en trastornos metabólicos y hormonales.',
+    icon: '🌱',
+    color: 'amber',
+    methods: ['Extracción', 'Caracterización fitoquímica', 'Bioensayos'],
+    publications: 4,
+    active: true
+  },
+  {
+    id: 'software-cientifico',
+    title: 'Desarrollo de Software Científico',
+    description: 'Creación de herramientas computacionales especializadas para análisis de datos científicos y simulaciones moleculares.',
+    icon: '⚙️',
+    color: 'gray',
+    methods: ['Python', 'R', 'Machine Learning'],
+    publications: 2,
+    active: true
+  },
+  {
+    id: 'neuroendocrinologia',
+    title: 'Neuroendocrinología',
+    description: 'Estudio de las interacciones entre el sistema nervioso y endocrino, enfocándose en hormonas y neurotransmisores.',
+    icon: '🧬',
+    color: 'pink',
+    methods: ['ELISA', 'Inmunohistoquímica', 'Análisis hormonal'],
+    publications: 6,
+    active: true
+  }
+];
+
+const colorClasses: Record<ColorKey, string> = {
+  blue: 'bg-blue-50 border-blue-200 text-blue-600',
+  purple: 'bg-purple-50 border-purple-200 text-purple-600',
+  green: 'bg-green-50 border-green-200 text-green-600',
+  emerald: 'bg-emerald-50 border-emerald-200 text-emerald-600',
+  indigo: 'bg-indigo-50 border-indigo-200 text-indigo-600',
+  amber: 'bg-amber-50 border-amber-200 text-amber-600',
+  gray: 'bg-gray-50 border-gray-200 text-gray-600',
+  pink: 'bg-pink-50 border-pink-200 text-pink-600'
+};
+---
+
+<Layout title="Líneas de Investigación - Laboratorio de Hormonas y Conducta">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="mb-6">
+          <span class="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+            🔬 Investigación Multidisciplinaria
+          </span>
+        </div>
+        <h1 class="text-5xl font-serif font-bold text-gray-900 mb-6">
+          Líneas de <span class="text-blue-600">Investigación</span>
+        </h1>
+        <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+          Nuestro laboratorio desarrolla investigación de vanguardia en múltiples áreas, 
+          integrando enfoques experimentales y computacionales para el avance científico.
+        </p>
+        
+        <!-- Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-2xl font-bold text-blue-600">{researchLines.length}</div>
+            <div class="text-sm text-gray-600">Líneas Activas</div>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-2xl font-bold text-green-600">{researchLines.reduce((acc, line) => acc + line.publications, 0)}</div>
+            <div class="text-sm text-gray-600">Publicaciones</div>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-2xl font-bold text-purple-600">15+</div>
+            <div class="text-sm text-gray-600">Proyectos</div>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-2xl font-bold text-amber-600">25+</div>
+            <div class="text-sm text-gray-600">Estudiantes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Lines Grid -->
+  <section class="bg-white py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {researchLines.map((line) => (
+            <div class={`bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 ${colorClasses[line.color]} overflow-hidden group`}>
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-4xl">{line.icon}</span>
+                  <div class="flex items-center space-x-2">
+                    {line.active && (
+                      <span class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></span>
+                    )}
+                    <span class="text-sm font-medium text-gray-600">
+                      {line.publications} publicaciones
+                    </span>
+                  </div>
+                </div>
+                
+                <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition duration-300">
+                  {line.title}
+                </h3>
+                
+                <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                  {line.description}
+                </p>
+                
+                <div class="mb-4">
+                  <h4 class="text-sm font-semibold text-gray-800 mb-2">Metodologías:</h4>
+                  <div class="flex flex-wrap gap-1">
+                    {line.methods.map((method) => (
+                      <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                        {method}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                
+                <div class="flex gap-2">
+                  <a href={`/investigacion/${line.id}`} 
+                     class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition duration-300 text-center">
+                    Ver Detalles
+                  </a>
+                  <a href={`/publicaciones?area=${line.id}`} 
+                     class="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-50 transition duration-300 text-center">
+                    Publicaciones
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Collaborations Section -->
+  <section class="bg-gray-50 py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-serif font-bold text-gray-900 mb-4">
+            Colaboraciones y Equipamiento
+          </h2>
+          <p class="text-lg text-gray-600">
+            Trabajamos con instituciones de prestigio y contamos con equipamiento de vanguardia
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Equipment -->
+          <div class="bg-white rounded-xl p-8 shadow-lg">
+            <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
+              🔬 <span class="ml-2">Equipamiento Principal</span>
+            </h3>
+            <div class="space-y-3">
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">Estación de trabajo para modelado molecular</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">Laberinto de Barnes para pruebas conductuales</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">Cluster de cómputo para simulaciones</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">Laboratorio de química analítica</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Software -->
+          <div class="bg-white rounded-xl p-8 shadow-lg">
+            <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
+              💻 <span class="ml-2">Software Especializado</span>
+            </h3>
+            <div class="space-y-3">
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">Gaussian para cálculos cuánticos</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">GROMACS para dinámica molecular</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">AutoDock para docking molecular</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">R y Python para análisis estadístico</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-blue-600 py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">
+        ¿Interesado en Colaborar?
+      </h2>
+      <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+        Estamos abiertos a nuevas colaboraciones científicas y proyectos de investigación interdisciplinaria.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contacto" 
+           class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition duration-300">
+          Contactar Laboratorio
+        </a>
+        <a href="/publicaciones" 
+           class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300">
+          Ver Publicaciones
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Animaciones adicionales */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .group:hover .animate-pulse {
+    animation: float 2s ease-in-out infinite;
+  }
+</style>

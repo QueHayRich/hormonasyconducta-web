@@ -1,0 +1,474 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// Tipo para el estado de la publicación
+type PublicationStatus = 'published' | 'accepted' | 'submitted' | 'in-review';
+
+// Tipo para las áreas de investigación
+type ResearchArea = 'diabetes-murinos' | 'docking-molecular' | 'quimica-teorica' | 'ecotoxicologia' | 'pruebas-conductuales' | 'extractos-vegetales' | 'software-cientifico' | 'neuroendocrinologia';
+
+// Interfaz para las publicaciones
+interface Publication {
+  id: string;
+  title: string;
+  authors: string[];
+  journal: string;
+  year: number;
+  volume?: string;
+  pages?: string;
+  doi?: string;
+  url?: string;
+  abstract: string;
+  keywords: string[];
+  researchArea: ResearchArea;
+  status: PublicationStatus;
+  featured: boolean;
+  type: 'article' | 'thesis' | 'conference' | 'book-chapter';
+}
+
+// Datos de las publicaciones
+const publications: Publication[] = [
+  {
+    id: 'diabetes-2024-diabetology',
+    title: 'Neuroendocrine Mechanisms in Murine Diabetes Models: A Comprehensive Analysis',
+    authors: ['García-López, M.', 'Rodríguez-Silva, A.', 'Martínez-Cruz, J.', 'López-Hernández, P.'],
+    journal: 'Diabetology',
+    year: 2024,
+    volume: '6',
+    pages: '56',
+    doi: '10.3390/diabetology6060056',
+    url: 'https://doi.org/10.3390/diabetology6060056',
+    abstract: 'Este estudio examina los mecanismos neuroendocrinos involucrados en modelos murinos de diabetes, evaluando el impacto de las hormonas en la conducta y el metabolismo...',
+    keywords: ['diabetes', 'modelos murinos', 'neuroendocrinología', 'hormonas', 'conducta'],
+    researchArea: 'diabetes-murinos',
+    status: 'published',
+    featured: true,
+    type: 'article'
+  },
+  {
+    id: 'docking-2023-jmolmod',
+    title: 'Molecular Docking Analysis of Hormone-Receptor Interactions in Metabolic Disorders',
+    authors: ['Pérez-Morales, L.', 'Sánchez-Torres, R.', 'González-Vega, C.'],
+    journal: 'Journal of Molecular Modeling',
+    year: 2023,
+    volume: '29',
+    pages: '145-158',
+    doi: '10.1007/s00894-023-05234-1',
+    url: 'https://doi.org/10.1007/s00894-023-05234-1',
+    abstract: 'Análisis computacional de interacciones moleculares entre hormonas y receptores en trastornos metabólicos utilizando técnicas de docking molecular...',
+    keywords: ['docking molecular', 'hormonas', 'receptores', 'simulación'],
+    researchArea: 'docking-molecular',
+    status: 'published',
+    featured: true,
+    type: 'article'
+  },
+  {
+    id: 'barnes-maze-2023',
+    title: 'Cognitive Performance Assessment in Diabetic Mice Using Barnes Maze Test',
+    authors: ['Hernández-Ruiz, A.', 'Castro-Mendoza, F.', 'Vega-Ortiz, S.'],
+    journal: 'Behavioral Neuroscience',
+    year: 2023,
+    volume: '137',
+    pages: '289-301',
+    doi: '10.1037/bne0000523',
+    url: 'https://doi.org/10.1037/bne0000523',
+    abstract: 'Evaluación del rendimiento cognitivo en ratones diabéticos mediante el test del laberinto de Barnes, demostrando alteraciones significativas en memoria espacial...',
+    keywords: ['laberinto de Barnes', 'diabetes', 'cognición', 'memoria espacial'],
+    researchArea: 'pruebas-conductuales',
+    status: 'published',
+    featured: false,
+    type: 'article'
+  },
+  {
+    id: 'plant-extracts-2023',
+    title: 'Antidiabetic Properties of Mexican Plant Extracts: Phytochemical and Behavioral Analysis',
+    authors: ['Morales-Jiménez, K.', 'Rivera-López, E.', 'Flores-Castillo, M.'],
+    journal: 'Journal of Ethnopharmacology',
+    year: 2023,
+    volume: '315',
+    pages: '116742',
+    doi: '10.1016/j.jep.2023.116742',
+    url: 'https://doi.org/10.1016/j.jep.2023.116742',
+    abstract: 'Caracterización fitoquímica y análisis de propiedades antidiabéticas de extractos vegetales mexicanos con potencial terapéutico...',
+    keywords: ['extractos vegetales', 'fitoquímica', 'diabetes', 'plantas medicinales'],
+    researchArea: 'extractos-vegetales',
+    status: 'published',
+    featured: false,
+    type: 'article'
+  },
+  {
+    id: 'quantum-calculations-2022',
+    title: 'Quantum Chemical Calculations of Hormone-Drug Interactions: A DFT Study',
+    authors: ['Ramírez-Téllez, D.', 'Ochoa-Vargas, N.', 'Delgado-Santos, P.'],
+    journal: 'Journal of Computational Chemistry',
+    year: 2022,
+    volume: '43',
+    pages: '1234-1245',
+    doi: '10.1002/jcc.26891',
+    url: 'https://doi.org/10.1002/jcc.26891',
+    abstract: 'Estudio de cálculos químicos cuánticos utilizando DFT para analizar interacciones entre hormonas y fármacos...',
+    keywords: ['DFT', 'química cuántica', 'hormonas', 'interacciones moleculares'],
+    researchArea: 'quimica-teorica',
+    status: 'published',
+    featured: false,
+    type: 'article'
+  },
+  {
+    id: 'tesis-maestria-2024',
+    title: 'Análisis Computacional de Interacciones Hormonales en Diabetes Tipo 2',
+    authors: ['López-García, M.A.'],
+    journal: 'Tesis de Maestría - Universidad Nacional',
+    year: 2024,
+    volume: undefined,
+    pages: undefined,
+    doi: undefined,
+    url: undefined,
+    abstract: 'Tesis de maestría enfocada en el análisis computacional de interacciones hormonales en modelos de diabetes tipo 2...',
+    keywords: ['tesis', 'diabetes tipo 2', 'análisis computacional', 'hormonas'],
+    researchArea: 'diabetes-murinos',
+    status: 'published',
+    featured: false,
+    type: 'thesis'
+  },
+  {
+    id: 'software-development-2024',
+    title: 'MolAnalyzer: Software Tool for Molecular Dynamics Analysis in Endocrine Research',
+    authors: ['Tech-Team Lab', 'Vargas-Código, J.', 'Script-Hernández, A.'],
+    journal: 'Bioinformatics Applications Note',
+    year: 2024,
+    volume: undefined,
+    pages: undefined,
+    doi: undefined,
+    url: undefined,
+    status: 'submitted',
+    abstract: 'Desarrollo de herramienta computacional especializada para análisis de dinámica molecular en investigación endocrina...',
+    keywords: ['software', 'dinámica molecular', 'bioinformática', 'herramientas'],
+    researchArea: 'software-cientifico',
+    featured: false,
+    type: 'article'
+  }
+];
+
+// Filtros por área de investigación
+const researchAreas: Record<ResearchArea, string> = {
+  'diabetes-murinos': 'Diabetes en Modelos Murinos',
+  'docking-molecular': 'Docking Molecular',
+  'quimica-teorica': 'Química Teórica',
+  'ecotoxicologia': 'Ecotoxicología',
+  'pruebas-conductuales': 'Análisis Conductual',
+  'extractos-vegetales': 'Extractos Vegetales',
+  'software-cientifico': 'Software Científico',
+  'neuroendocrinologia': 'Neuroendocrinología'
+};
+
+// Colores por estado
+const statusColors: Record<PublicationStatus, string> = {
+  'published': 'bg-green-100 text-green-800',
+  'accepted': 'bg-blue-100 text-blue-800',
+  'submitted': 'bg-yellow-100 text-yellow-800',
+  'in-review': 'bg-purple-100 text-purple-800'
+};
+
+// Iconos por tipo
+const typeIcons: Record<Publication['type'], string> = {
+  'article': '📄',
+  'thesis': '🎓',
+  'conference': '🎤',
+  'book-chapter': '📚'
+};
+
+// Estadísticas
+const stats = {
+  total: publications.length,
+  published: publications.filter(p => p.status === 'published').length,
+  thisYear: publications.filter(p => p.year === 2024).length,
+  featured: publications.filter(p => p.featured).length
+};
+
+// Helper function para obtener la URL correcta
+function getPublicationUrl(publication: Publication): string | undefined {
+  if (publication.url) return publication.url;
+  if (publication.doi) return `https://doi.org/${publication.doi}`;
+  return undefined;
+}
+---
+
+<Layout title="Publicaciones - Laboratorio de Hormonas y Conducta">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="mb-6">
+          <span class="inline-block bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-medium">
+            📚 Producción Científica
+          </span>
+        </div>
+        <h1 class="text-5xl font-serif font-bold text-gray-900 mb-6">
+          Nuestras <span class="text-indigo-600">Publicaciones</span>
+        </h1>
+        <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+          Descubre la producción científica del Laboratorio de Hormonas y Conducta. 
+          Artículos peer-reviewed, tesis dirigidas y contribuciones a congresos internacionales.
+        </p>
+        
+        <!-- Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-2xl font-bold text-indigo-600">{stats.total}</div>
+            <div class="text-sm text-gray-600">Total Publicaciones</div>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-2xl font-bold text-green-600">{stats.published}</div>
+            <div class="text-sm text-gray-600">Publicadas</div>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-2xl font-bold text-blue-600">{stats.thisYear}</div>
+            <div class="text-sm text-gray-600">Este Año</div>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-2xl font-bold text-purple-600">{stats.featured}</div>
+            <div class="text-sm text-gray-600">Destacadas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Publications -->
+  <section class="bg-white py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-serif font-bold text-gray-900 mb-8">Publicaciones Destacadas</h2>
+        
+        <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          {publications.filter(pub => pub.featured).map((publication) => {
+            const publicationUrl = getPublicationUrl(publication);
+            return (
+              <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 border border-blue-200">
+                <div class="flex items-start justify-between mb-4">
+                  <div class="flex items-center space-x-2">
+                    <span class="text-2xl">{typeIcons[publication.type]}</span>
+                    <span class={`px-3 py-1 rounded-full text-xs font-medium ${statusColors[publication.status]}`}>
+                      {publication.status === 'published' ? 'Publicado' : 
+                       publication.status === 'accepted' ? 'Aceptado' :
+                       publication.status === 'submitted' ? 'Enviado' : 'En Revisión'}
+                    </span>
+                  </div>
+                  <span class="text-sm text-gray-600">{publication.year}</span>
+                </div>
+                
+                <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                  {publicationUrl ? (
+                    <a href={publicationUrl} target="_blank" class="hover:text-blue-600 transition duration-300">
+                      {publication.title}
+                    </a>
+                  ) : (
+                    publication.title
+                  )}
+                </h3>
+                
+                <p class="text-gray-700 mb-3 text-sm">
+                  <strong>Autores:</strong> {publication.authors.join(', ')}
+                </p>
+                
+                <p class="text-gray-700 mb-4 text-sm">
+                  <strong>Revista:</strong> {publication.journal}
+                  {publication.volume && publication.pages && (
+                    <span>, Vol. {publication.volume}, pp. {publication.pages}</span>
+                  )}
+                </p>
+                
+                <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                  {publication.abstract.substring(0, 200)}...
+                </p>
+                
+                <div class="flex flex-wrap gap-1 mb-4">
+                  {publication.keywords.slice(0, 4).map((keyword) => (
+                    <span class="bg-white text-gray-700 px-2 py-1 rounded text-xs border">
+                      {keyword}
+                    </span>
+                  ))}
+                </div>
+                
+                <div class="flex gap-2">
+                  {publicationUrl && (
+                    <a href={publicationUrl} target="_blank" 
+                       class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition duration-300">
+                      📖 Leer Artículo
+                    </a>
+                  )}
+                  {publication.doi && (
+                    <a href={`https://doi.org/${publication.doi}`} target="_blank" 
+                       class="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-50 transition duration-300">
+                      DOI
+                    </a>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- All Publications -->
+  <section class="bg-gray-50 py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-3xl font-serif font-bold text-gray-900">Todas las Publicaciones</h2>
+          
+          <!-- Filter buttons -->
+          <div class="flex flex-wrap gap-2">
+            <button class="filter-btn active bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition duration-300" data-filter="all">
+              Todas
+            </button>
+            <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition duration-300" data-filter="2024">
+              2024
+            </button>
+            <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition duration-300" data-filter="article">
+              Artículos
+            </button>
+            <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition duration-300" data-filter="thesis">
+              Tesis
+            </button>
+          </div>
+        </div>
+        
+        <div class="space-y-6">
+          {publications.map((publication) => {
+            const publicationUrl = getPublicationUrl(publication);
+            return (
+              <div class={`publication-item bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition duration-300`} 
+                   data-year={publication.year} 
+                   data-type={publication.type} 
+                   data-area={publication.researchArea}>
+                <div class="flex items-start justify-between mb-4">
+                  <div class="flex items-center space-x-3">
+                    <span class="text-xl">{typeIcons[publication.type]}</span>
+                    <div>
+                      <span class={`px-2 py-1 rounded-full text-xs font-medium ${statusColors[publication.status]} mr-2`}>
+                        {publication.status === 'published' ? 'Publicado' : 
+                         publication.status === 'accepted' ? 'Aceptado' :
+                         publication.status === 'submitted' ? 'Enviado' : 'En Revisión'}
+                      </span>
+                      <span class="text-sm text-gray-500">{researchAreas[publication.researchArea]}</span>
+                    </div>
+                  </div>
+                  <span class="text-sm font-medium text-gray-900">{publication.year}</span>
+                </div>
+                
+                <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">
+                  {publicationUrl ? (
+                    <a href={publicationUrl} target="_blank" class="hover:text-indigo-600 transition duration-300">
+                      {publication.title}
+                    </a>
+                  ) : (
+                    publication.title
+                  )}
+                </h3>
+                
+                <p class="text-gray-700 mb-2 text-sm">
+                  <strong>Autores:</strong> {publication.authors.join(', ')}
+                </p>
+                
+                <p class="text-gray-700 mb-3 text-sm">
+                  <strong>Publicado en:</strong> {publication.journal}
+                  {publication.volume && publication.pages && (
+                    <span>, Vol. {publication.volume}, pp. {publication.pages}</span>
+                  )}
+                </p>
+                
+                <div class="flex flex-wrap gap-1 mb-3">
+                  {publication.keywords.slice(0, 5).map((keyword) => (
+                    <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                      {keyword}
+                    </span>
+                  ))}
+                </div>
+                
+                <div class="flex gap-2">
+                  {publicationUrl && (
+                    <a href={publicationUrl} target="_blank" 
+                       class="text-indigo-600 hover:text-indigo-800 text-sm font-medium transition duration-300">
+                      📖 Leer →
+                    </a>
+                  )}
+                  {publication.doi && (
+                    <a href={`https://doi.org/${publication.doi}`} target="_blank" 
+                       class="text-gray-600 hover:text-gray-800 text-sm font-medium transition duration-300">
+                      DOI: {publication.doi} →
+                    </a>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Impact -->
+  <section class="bg-indigo-600 py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">
+        Impacto de Nuestra Investigación
+      </h2>
+      <p class="text-xl text-indigo-100 mb-8 max-w-2xl mx-auto">
+        Nuestras publicaciones contribuyen al avance científico en neuroendocrinología, 
+        diabetes y análisis conductual, con aplicaciones en salud pública y medicina traslacional.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/investigacion" 
+           class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition duration-300">
+          Ver Líneas de Investigación
+        </a>
+        <a href="/equipo" 
+           class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition duration-300">
+          Conocer al Equipo
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Filtros interactivos
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn') as NodeListOf<HTMLButtonElement>;
+    const publicationItems = document.querySelectorAll('.publication-item') as NodeListOf<HTMLElement>;
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function(this: HTMLButtonElement) {
+        const filter = this.getAttribute('data-filter');
+        
+        // Update active button
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active', 'bg-indigo-600', 'text-white');
+          btn.classList.add('bg-gray-200', 'text-gray-700');
+        });
+        this.classList.add('active', 'bg-indigo-600', 'text-white');
+        this.classList.remove('bg-gray-200', 'text-gray-700');
+        
+        // Filter publications
+        publicationItems.forEach(item => {
+          if (filter === 'all') {
+            item.style.display = 'block';
+          } else if (filter === '2024') {
+            item.style.display = item.getAttribute('data-year') === '2024' ? 'block' : 'none';
+          } else {
+            item.style.display = item.getAttribute('data-type') === filter ? 'block' : 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  .filter-btn.active {
+    @apply bg-indigo-600 text-white;
+  }
+</style>

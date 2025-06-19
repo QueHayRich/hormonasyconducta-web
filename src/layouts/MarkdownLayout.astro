@@ -1,0 +1,45 @@
+---
+import Layout from './Layout.astro';
+
+const { frontmatter } = Astro.props;
+const { title } = frontmatter || {};
+---
+
+<Layout title={title || 'Laboratorio de Hormonas y Conducta'}>
+  <div class="bg-gray-50 py-8">
+    <div class="container mx-auto px-4">
+      <nav class="text-sm text-gray-600 mb-4">
+        <a href="/" class="hover:text-blue-600">Inicio</a>
+        <span class="mx-2">›</span>
+        <span class="text-gray-900">{title}</span>
+      </nav>
+    </div>
+  </div>
+  
+  <div class="container mx-auto px-4 py-12">
+    <div class="max-w-4xl mx-auto prose prose-lg prose-blue">
+      <slot />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .prose h1 {
+    @apply text-4xl font-serif font-bold text-gray-900 mb-8;
+  }
+  .prose h2 {
+    @apply text-2xl font-serif font-bold text-gray-800 mt-8 mb-4;
+  }
+  .prose h3 {
+    @apply text-xl font-semibold text-gray-800 mt-6 mb-3;
+  }
+  .prose ul {
+    @apply space-y-2;
+  }
+  .prose li {
+    @apply text-gray-700;
+  }
+  .prose strong {
+    @apply text-blue-600 font-semibold;
+  }
+</style>
