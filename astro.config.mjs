@@ -5,6 +5,8 @@ import sharp from 'sharp';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://quehayrich.github.io',
+  base: '/hormonasyconducta-web/',
   integrations: [tailwind(), react()],
   assets: {
     addSharpInstructions: true,
