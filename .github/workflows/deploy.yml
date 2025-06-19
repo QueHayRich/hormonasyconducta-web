@@ -2,22 +2,40 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]        # dispara en cada push a main
+    branches: [main]            # ejecuta en cada push a main
+  workflow_dispatch:            # permite lanzarlo manualmente
 
 permissions:
-  contents: write           # crear rama gh-pages
-  pages: write
-  id-token: write
+  contents: read                # necesario para clonar el repo
+  pages: write                  # necesario para publicar
+  id-token: write               # necesario para firmar la publicación
+
+# evita despliegues simultáneos
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
 
-      # Acción oficial de Astro para Pages
-      - uses: withastro/action@v2
-        with:
-          node-version: 20        # opcional; fuerza LTS actual
-          path: .                 # raíz del proyecto
-          build-dir: ./dist       # carpeta de salida que genera Astro
+      - name: Install, build, and upload your site
+        uses: withastro/action@v4        # acción oficial
+        # Opcionalmente ajusta:
+        # with:
+        #   node-version: 20
+        #   path: .          # raíz del proyecto si fuera distinta
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages       # crea el “environment” de Pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
