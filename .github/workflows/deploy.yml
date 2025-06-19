@@ -1,0 +1,23 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]        # dispara en cada push a main
+
+permissions:
+  contents: write           # crear rama gh-pages
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Acción oficial de Astro para Pages
+      - uses: withastro/action@v2
+        with:
+          node-version: 20        # opcional; fuerza LTS actual
+          path: .                 # raíz del proyecto
+          build-dir: ./dist       # carpeta de salida que genera Astro
