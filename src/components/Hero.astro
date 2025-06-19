@@ -1,6 +1,11 @@
 ---
 import { Image } from 'astro:assets';
 import heroImg from '../assets/hero-image.png';
+
+// Función para obtener la URL base
+const getBaseUrl = () => {
+  return import.meta.env.BASE_URL;
+};
 ---
 
 <section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
@@ -22,15 +27,15 @@ import heroImg from '../assets/hero-image.png';
         
         <!-- Botones de acción -->
         <div class="flex flex-col sm:flex-row gap-4 mb-8">
-          <a href="/investigacion" 
+          <a href={getBaseUrl() + "investigacion"} 
              class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 text-center">
             🔬 Ver Investigación
           </a>
-          <a href="/publicaciones" 
+          <a href={getBaseUrl() + "publicaciones"} 
              class="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition duration-300 text-center">
             📚 Publicaciones
           </a>
-          <a href="/recursos" 
+          <a href={getBaseUrl() + "recursos"} 
              class="border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300 text-center">
             💾 Recursos
           </a>
