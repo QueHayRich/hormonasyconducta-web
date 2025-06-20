@@ -1,21 +1,29 @@
 ---
 const metrics = [
-  { value: '91', label: 'Daily Care Plan Engagement', symbol: '%' },
-  { value: '16', label: 'Increased PDC Medication Adherence', symbol: '%' },
-  { value: '51', label: 'Lower Inpatient Admission', symbol: '%' },
+  { value: '15+', label: 'Publicaciones Científicas en Revistas Indexadas', symbol: '' },
+  { value: '25+', label: 'Tesis de Licenciatura, Maestría y Doctorado Dirigidas', symbol: '' },
+  { value: '8', label: 'Líneas de Investigación Activas', symbol: '' },
 ];
 ---
 
 <section class="bg-gray-100 py-16">
   <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-serif font-bold text-gray-900 mb-4">
+        Impacto Científico y Académico
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Nuestro laboratorio contribuye significativamente al avance científico en neuroendocrinología, diabetes y análisis conductual
+      </p>
+    </div>
     <div class="flex flex-col md:flex-row justify-between items-center md:items-start space-y-12 md:space-y-0">
       {metrics.map((metric) => (
         <div class="text-center md:w-1/3">
           <div class="flex items-baseline justify-center">
-            <span class="text-7xl font-bold text-green-700">{metric.value}</span>
-            <span class="text-5xl font-bold text-green-700 ml-1">{metric.symbol}</span>
+            <span class="text-7xl font-bold text-blue-600">{metric.value}</span>
+            <span class="text-5xl font-bold text-blue-600 ml-1">{metric.symbol}</span>
           </div>
-          <p class="mt-4 text-lg font-semibold text-gray-700 max-w-[200px] mx-auto">{metric.label}</p>
+          <p class="mt-4 text-lg font-semibold text-gray-700 max-w-[250px] mx-auto">{metric.label}</p>
         </div>
       ))}
     </div>

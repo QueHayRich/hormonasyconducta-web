@@ -1,0 +1,421 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// Función para obtener la URL base
+const getBaseUrl = () => {
+  return import.meta.env.BASE_URL;
+};
+
+// Tipos para los recursos
+interface Resource {
+  id: string;
+  title: string;
+  description: string;
+  type: 'template' | 'practice' | 'guide' | 'software';
+  format: 'PDF' | 'DOCX' | 'PPTX' | 'ZIP' | 'XLSX';
+  size: string;
+  downloadUrl: string;
+  icon: string;
+  category: string;
+  lastUpdated: string;
+  featured: boolean;
+}
+
+// Base de datos de recursos
+const resources: Resource[] = [
+  // Templates
+  {
+    id: 'template-tesis',
+    title: 'Template de Tesis - Laboratorio HyC',
+    description: 'Plantilla oficial para tesis de licenciatura y maestría con formato institucional, incluyendo portada, índices, metodología y bibliografía.',
+    type: 'template',
+    format: 'DOCX',
+    size: '2.1 MB',
+    downloadUrl: '/recursos/templates/template-tesis-hyc.docx',
+    icon: '📄',
+    category: 'Templates Académicos',
+    lastUpdated: '2024-01-15',
+    featured: true
+  },
+  {
+    id: 'template-poster_3columns',
+    title: 'Template de Póster Científico (english three columns)',
+    description: 'Plantilla para pósters científicos en congresos, con secciones optimizadas para presentación de resultados de investigación a tres columnas y en inglés.',
+    type: 'template',
+    format: 'PPTX',
+    size: '12.3 MB',
+    downloadUrl: '/recursos/templates/Poster template English 3 columns.pptx',
+    icon: '🖼️',
+    category: 'Templates Académicos',
+    lastUpdated: '2024-01-05',
+    featured: true
+  },
+  {
+    id: 'template-poster_2columns',
+    title: 'Template de Póster Científico (english two columns)',
+    description: 'Plantilla para pósters científicos en congresos, con secciones optimizadas para presentación de resultados de investigación a dos columnas y en inglés.',
+    type: 'template',
+    format: 'PPTX',
+    size: '12.3 MB',
+    downloadUrl: '/recursos/templates/Poster template English 2 columns.pptx',
+    icon: '🖼️',
+    category: 'Templates Académicos',
+    lastUpdated: '2024-01-05',
+    featured: true
+  },
+  
+  // Prácticas de Laboratorio
+  {
+    id: 'practica-fisiologia-01',
+    title: 'Práctica 1: Introducción a la Fisiología General',
+    description: 'Manual de práctica introductoria sobre conceptos básicos de fisiología, homeostasis y sistemas de regulación.',
+    type: 'practice',
+    format: 'PDF',
+    size: '1.8 MB',
+    downloadUrl: '/recursos/practicas/practica-01-fisiologia.pdf',
+    icon: '🔬',
+    category: 'Prácticas de Fisiología',
+    lastUpdated: '2024-02-01',
+    featured: true
+  },
+  {
+    id: 'practica-fisiologia-02',
+    title: 'Práctica 2: Sistema Endocrino y Hormonas',
+    description: 'Estudio experimental del sistema endocrino, identificación de glándulas y análisis de mecanismos hormonales.',
+    type: 'practice',
+    format: 'PDF',
+    size: '2.4 MB',
+    downloadUrl: '/recursos/practicas/practica-02-endocrinologia.pdf',
+    icon: '🧬',
+    category: 'Prácticas de Fisiología',
+    lastUpdated: '2024-02-03',
+    featured: true
+  },
+  {
+    id: 'practica-fisiologia-03',
+    title: 'Práctica 3: Análisis Conductual en Modelos Murinos',
+    description: 'Protocolo para evaluación de comportamiento animal, incluyendo pruebas de campo abierto y laberinto de Barnes.',
+    type: 'practice',
+    format: 'PDF',
+    size: '3.1 MB',
+    downloadUrl: '/recursos/practicas/practica-03-conductual.pdf',
+    icon: '🐭',
+    category: 'Prácticas de Fisiología',
+    lastUpdated: '2024-02-05',
+    featured: false
+  },
+  {
+    id: 'practica-fisiologia-04',
+    title: 'Práctica 4: Técnicas de Análisis Estadístico',
+    description: 'Guía práctica para análisis estadístico de datos experimentales usando R y herramientas de bioestadística.',
+    type: 'practice',
+    format: 'PDF',
+    size: '2.7 MB',
+    downloadUrl: '/recursos/practicas/practica-04-estadistica.pdf',
+    icon: '📈',
+    category: 'Prácticas de Fisiología',
+    lastUpdated: '2024-02-08',
+    featured: false
+  },
+  
+  // Guías y Manuales
+  {
+    id: 'guia-laboratorio',
+    title: 'Manual de Seguridad del Laboratorio',
+    description: 'Guía completa de seguridad, protocolos de emergencia y buenas prácticas para trabajo en laboratorio de investigación.',
+    type: 'guide',
+    format: 'PDF',
+    size: '1.5 MB',
+    downloadUrl: '/recursos/guias/manual-seguridad-lab.pdf',
+    icon: '🛡️',
+    category: 'Guías y Manuales',
+    lastUpdated: '2024-01-20',
+    featured: false
+  },
+  {
+    id: 'guia-tesis',
+    title: 'Guía para Elaboración de Tesis',
+    description: 'Manual paso a paso para la elaboración de tesis, desde la selección del tema hasta la defensa oral.',
+    type: 'guide',
+    format: 'PDF',
+    size: '3.8 MB',
+    downloadUrl: '/recursos/guias/guia-elaboracion-tesis.pdf',
+    icon: '📚',
+    category: 'Guías y Manuales',
+    lastUpdated: '2024-01-25',
+    featured: false
+  },
+  
+  // Software y Herramientas
+  {
+    id: 'plantilla-analisis-r',
+    title: 'Scripts de R para Análisis Estadístico',
+    description: 'Colección de scripts en R para análisis estadístico común en investigación biomédica, incluye ANOVA, regresión y gráficos.',
+    type: 'software',
+    format: 'ZIP',
+    size: '890 KB',
+    downloadUrl: '/recursos/software/scripts-r-analisis.zip',
+    icon: '💻',
+    category: 'Software y Scripts',
+    lastUpdated: '2024-02-10',
+    featured: false
+  },
+  {
+    id: 'hoja-calculo-experimentos',
+    title: 'Hoja de Cálculo para Diseño Experimental',
+    description: 'Plantilla Excel para diseño de experimentos, cálculo de tamaño muestral y registro de datos experimentales.',
+    type: 'software',
+    format: 'XLSX',
+    size: '1.2 MB',
+    downloadUrl: '/recursos/software/diseño-experimental.xlsx',
+    icon: '📋',
+    category: 'Software y Scripts',
+    lastUpdated: '2024-02-12',
+    featured: false
+  }
+];
+
+// Categorías para filtros
+const categories = ['Todos', 'Templates Académicos', 'Prácticas de Fisiología', 'Guías y Manuales', 'Software y Scripts'];
+
+// Estadísticas
+const stats = {
+  total: resources.length,
+  templates: resources.filter(r => r.type === 'template').length,
+  practices: resources.filter(r => r.type === 'practice').length,
+  guides: resources.filter(r => r.type === 'guide').length,
+  software: resources.filter(r => r.type === 'software').length
+};
+
+// Colores por tipo
+const typeColors = {
+  'template': 'bg-blue-100 text-blue-800',
+  'practice': 'bg-green-100 text-green-800',
+  'guide': 'bg-purple-100 text-purple-800',
+  'software': 'bg-orange-100 text-orange-800'
+};
+
+// Iconos por formato
+const formatIcons = {
+  'PDF': '📄',
+  'DOCX': '📝',
+  'PPTX': '📊',
+  'ZIP': '📦',
+  'XLSX': '📋'
+};
+---
+
+<Layout title="Recursos - Laboratorio de Hormonas y Conducta">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="mb-6">
+          <span class="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
+            📚 Recursos Académicos
+          </span>
+        </div>
+        <h1 class="text-5xl font-serif font-bold text-gray-900 mb-6">
+          Centro de <span class="text-green-600">Recursos</span>
+        </h1>
+        <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+          Descarga templates, manuales de prácticas y recursos educativos para estudiantes e investigadores del Laboratorio de Hormonas y Conducta.
+        </p>
+        
+        <!-- Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-2xl font-bold text-green-600">{stats.total}</div>
+            <div class="text-sm text-gray-600">Total Recursos</div>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-2xl font-bold text-blue-600">{stats.templates}</div>
+            <div class="text-sm text-gray-600">Templates</div>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-2xl font-bold text-purple-600">{stats.practices}</div>
+            <div class="text-sm text-gray-600">Prácticas</div>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="text-2xl font-bold text-orange-600">{stats.guides + stats.software}</div>
+            <div class="text-sm text-gray-600">Guías & Software</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Resources -->
+  <section class="bg-white py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-serif font-bold text-gray-900 mb-8">Recursos Destacados</h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {resources.filter(resource => resource.featured).map((resource) => (
+            <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 overflow-hidden">
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-3xl">{resource.icon}</span>
+                  <div class="flex items-center space-x-2">
+                    <span class={`px-2 py-1 rounded-full text-xs font-medium ${typeColors[resource.type]}`}>
+                      {resource.type === 'template' ? 'Template' :
+                       resource.type === 'practice' ? 'Práctica' :
+                       resource.type === 'guide' ? 'Guía' : 'Software'}
+                    </span>
+                    <span class="text-xs text-gray-500 flex items-center">
+                      {formatIcons[resource.format]} {resource.format}
+                    </span>
+                  </div>
+                </div>
+                
+                <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                  {resource.title}
+                </h3>
+                
+                <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                  {resource.description}
+                </p>
+                
+                <div class="flex items-center justify-between text-xs text-gray-500 mb-4">
+                  <span>Tamaño: {resource.size}</span>
+                  <span>Actualizado: {resource.lastUpdated}</span>
+                </div>
+                
+                <a href={getBaseUrl() + resource.downloadUrl.slice(1)} 
+                   download
+                   class="w-full bg-green-600 text-white px-4 py-3 rounded-lg text-sm font-medium hover:bg-green-700 transition duration-300 text-center block">
+                  📥 Descargar {resource.format}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- All Resources -->
+  <section class="bg-gray-50 py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+          <h2 class="text-3xl font-serif font-bold text-gray-900">Todos los Recursos</h2>
+          
+          <!-- Filter buttons -->
+          <div class="flex flex-wrap gap-2">
+            {categories.map((category) => (
+              <button class={`filter-btn px-4 py-2 rounded-lg text-sm font-medium transition duration-300 ${
+                category === 'Todos' 
+                  ? 'active bg-green-600 text-white' 
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`} data-filter={category}>
+                {category}
+              </button>
+            ))}
+          </div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {resources.map((resource) => (
+            <div class={`resource-item bg-white rounded-lg shadow-sm hover:shadow-md transition duration-300 p-6`} 
+                 data-category={resource.category}>
+              <div class="flex items-start justify-between mb-4">
+                <span class="text-2xl">{resource.icon}</span>
+                <div class="flex flex-col items-end space-y-1">
+                  <span class={`px-2 py-1 rounded-full text-xs font-medium ${typeColors[resource.type]}`}>
+                    {resource.type === 'template' ? 'Template' :
+                     resource.type === 'practice' ? 'Práctica' :
+                     resource.type === 'guide' ? 'Guía' : 'Software'}
+                  </span>
+                  <span class="text-xs text-gray-500">{resource.size}</span>
+                </div>
+              </div>
+              
+              <h3 class="text-lg font-bold text-gray-900 mb-2 leading-tight">
+                {resource.title}
+              </h3>
+              
+              <p class="text-gray-600 mb-3 text-sm leading-relaxed">
+                {resource.description.substring(0, 120)}...
+              </p>
+              
+              <div class="flex items-center justify-between text-xs text-gray-500 mb-4">
+                <span class="flex items-center">
+                  {formatIcons[resource.format]} {resource.format}
+                </span>
+                <span>{resource.lastUpdated}</span>
+              </div>
+              
+              <a href={getBaseUrl() + resource.downloadUrl.slice(1)} 
+                 download
+                 class="w-full bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition duration-300 text-center block">
+                📥 Descargar
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upload Instructions -->
+  <section class="bg-blue-600 py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">
+        ¿Necesitas Ayuda con los Recursos?
+      </h2>
+      <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+        Si tienes problemas descargando algún archivo o necesitas recursos adicionales, 
+        contacta al equipo del laboratorio.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={getBaseUrl() + "contacto"} 
+           class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition duration-300">
+          Contactar Soporte
+        </a>
+        <a href={getBaseUrl() + "investigacion"} 
+           class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300">
+          Ver Investigación
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Filtros por categoría
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn') as NodeListOf<HTMLButtonElement>;
+    const resourceItems = document.querySelectorAll('.resource-item') as NodeListOf<HTMLElement>;
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function(this: HTMLButtonElement) {
+        const filter = this.getAttribute('data-filter');
+        
+        // Update active button
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active', 'bg-green-600', 'text-white');
+          btn.classList.add('bg-gray-200', 'text-gray-700');
+        });
+        this.classList.add('active', 'bg-green-600', 'text-white');
+        this.classList.remove('bg-gray-200', 'text-gray-700');
+        
+        // Filter resources
+        resourceItems.forEach(item => {
+          if (filter === 'Todos') {
+            item.style.display = 'block';
+          } else {
+            item.style.display = item.getAttribute('data-category') === filter ? 'block' : 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  .filter-btn.active {
+    @apply bg-green-600 text-white;
+  }
+</style>

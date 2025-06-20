@@ -1,51 +1,371 @@
 ---
 ---
 
-<section class="bg-stone-100 py-20">
-  <div class="container mx-auto px-4">
-    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16">
-      <div class="lg:w-1/3">
-        <h2 class="text-4xl font-serif font-bold text-gray-800 mb-4">Talk to our team</h2>
-        <p class="text-xl text-gray-600">
-          Learn how Wellth can impact health, cost, and quality outcomes for your organization.
+<section class="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-20 overflow-hidden">
+  <!-- Elementos científicos de fondo -->
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%), radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);"></div>
+    <!-- Patrón molecular sutil -->
+    <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <pattern id="molecular-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+        <circle cx="20" cy="20" r="2" fill="#3b82f6" opacity="0.1"/>
+        <circle cx="80" cy="80" r="2" fill="#8b5cf6" opacity="0.1"/>
+        <line x1="20" y1="20" x2="80" y2="80" stroke="#6366f1" stroke-width="1" opacity="0.05"/>
+      </pattern>
+      <rect width="100%" height="100%" fill="url(#molecular-pattern)"/>
+    </svg>
+  </div>
+
+  <div class="relative z-10 container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      
+      <!-- Header científico -->
+      <div class="text-center mb-16">
+        <div class="mb-6">
+          <span class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full text-sm font-semibold shadow-lg">
+            📍 Información de Contacto
+          </span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          Visita Nuestro <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Laboratorio</span>
+        </h1>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          Ubicado en el corazón de la investigación científica mexicana, nuestro laboratorio forma parte de la 
+          <strong>Escuela Nacional de Ciencias Biológicas</strong> del Instituto Politécnico Nacional en el campus Zacatenco.
         </p>
       </div>
-      <div class="lg:w-2/3">
-        <form class="space-y-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First name*</label>
-              <input type="text" id="firstName" name="firstName" required 
-                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
+
+      <!-- Grid principal centrado -->
+      <div class="grid lg:grid-cols-2 gap-12 items-start mb-16">
+        
+        <!-- Información de contacto principal -->
+        <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-white/20">
+          <h2 class="text-3xl font-bold text-gray-900 mb-8 flex items-center">
+            <span class="text-4xl mr-4">📞</span>
+            Datos de Contacto
+          </h2>
+          
+          <div class="space-y-8">
+            <!-- Dirección -->
+            <div class="flex items-start space-x-4 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
+              <div class="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-bold text-gray-900 mb-2 text-lg">Dirección</h3>
+                <p class="text-gray-700 leading-relaxed">
+                  <strong>Av. Wilfrido Massieu 399</strong><br>
+                  Nueva Industrial Vallejo<br>
+                  Gustavo A. Madero, 07700<br>
+                  Ciudad de México, CDMX
+                </p>
+                <div class="mt-3 pt-3 border-t border-blue-200">
+                  <p class="text-sm text-blue-700 font-semibold">
+                    🏛️ Escuela Nacional de Ciencias Biológicas
+                  </p>
+                  <p class="text-xs text-blue-600 mt-1">
+                    Instituto Politécnico Nacional - Campus Zacatenco
+                  </p>
+                </div>
+              </div>
             </div>
-            <div>
-              <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last name*</label>
-              <input type="text" id="lastName" name="lastName" required 
-                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
+
+            <!-- Teléfono -->
+            <div class="flex items-start space-x-4 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-100">
+              <div class="flex-shrink-0 w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-bold text-gray-900 mb-2 text-lg">Teléfono</h3>
+                <p class="text-2xl font-bold text-green-700">55 5729 6000</p>
+                <p class="text-lg text-green-600 font-semibold">Ext. 52335</p>
+                <p class="text-sm text-gray-600 mt-2">
+                  📱 También disponible por WhatsApp
+                </p>
+              </div>
+            </div>
+
+            <!-- Horarios -->
+            <div class="flex items-start space-x-4 p-6 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl border border-purple-100">
+              <div class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-bold text-gray-900 mb-2 text-lg">Horarios de Atención</h3>
+                <div class="space-y-2">
+                  <p class="text-gray-700">
+                    <strong>Lunes a Viernes:</strong> 9:00 - 17:00 hrs
+                  </p>
+                  <p class="text-gray-700">
+                    <strong>Sábados:</strong> 9:00 - 13:00 hrs (previa cita)
+                  </p>
+                  <p class="text-sm text-purple-600 font-medium mt-3">
+                    ⚠️ Se recomienda agendar cita previa
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Correos de los doctores jefes -->
+            <div class="flex items-start space-x-4 p-6 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl border border-amber-100">
+              <div class="flex-shrink-0 w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-bold text-gray-900 mb-3 text-lg">Directores del Laboratorio</h3>
+                <div class="space-y-4">
+                  <div class="p-3 bg-white/70 rounded-lg border border-amber-200">
+                    <p class="font-semibold text-gray-900">👩‍🔬 Dra. Dulce Nicolás Álvarez</p>
+                    <a 
+                      href="mailto:dnicolas@ipn.mx" 
+                      class="text-blue-600 hover:text-blue-800 text-sm transition-colors duration-200 flex items-center mt-1"
+                    >
+                      <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                      </svg>
+                      dnicolas@ipn.mx
+                    </a>
+                  </div>
+                  <div class="p-3 bg-white/70 rounded-lg border border-amber-200">
+                    <p class="font-semibold text-gray-900">👨‍🔬 Dr. Tomás Fregoso Aguilar</p>
+                    <a 
+                      href="mailto:tfregoso@ipn.mx" 
+                      class="text-blue-600 hover:text-blue-800 text-sm transition-colors duration-200 flex items-center mt-1"
+                    >
+                      <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                      </svg>
+                      tfregoso@ipn.mx
+                    </a>
+                  </div>
+                </div>
+                <p class="text-xs text-amber-700 mt-3 font-medium">
+                  📧 Contacto directo para proyectos de investigación
+                </p>
+              </div>
             </div>
           </div>
-          <div>
-            <label for="workEmail" class="block text-sm font-medium text-gray-700 mb-1">Work email*</label>
-            <input type="email" id="workEmail" name="workEmail" required 
-              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
+
+          <!-- Botones de acción -->
+          <div class="mt-8 pt-6 border-t border-gray-200 space-y-4">
+            <h3 class="font-bold text-gray-900 mb-4">Contáctanos Directamente</h3>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a 
+                href="tel:5557296000" 
+                class="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold py-3 px-6 rounded-xl hover:from-green-700 hover:to-emerald-700 transform hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                </svg>
+                <span>Llamar Ahora</span>
+              </a>
+              <a 
+                href="https://wa.me/525557296000" 
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex-1 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold py-3 px-6 rounded-xl hover:from-green-600 hover:to-green-700 transform hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.309"/>
+                </svg>
+                <span>WhatsApp</span>
+              </a>
+            </div>
           </div>
-          <div>
-            <label for="phoneNumber" class="block text-sm font-medium text-gray-700 mb-1">Phone number*</label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" required 
-              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
+        </div>
+
+        <!-- Mapa integrado -->
+        <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden border border-white/20">
+          <div class="p-6 border-b border-gray-200">
+            <h2 class="text-2xl font-bold text-gray-900 flex items-center">
+              <span class="text-3xl mr-3">🗺️</span>
+              Ubicación del Laboratorio
+            </h2>
+            <p class="text-gray-600 mt-2">
+              Campus Zacatenco - Instituto Politécnico Nacional
+            </p>
+            <div class="flex items-center space-x-4 mt-3">
+              <div class="flex items-center space-x-2 text-sm text-blue-600">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="font-mono text-xs">19.500205, -99.145016</span>
+              </div>
+              <a 
+                href="https://www.google.com/maps/dir//19.50020501766202,-99.14501636360053" 
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-sm text-blue-600 hover:text-blue-800 font-medium underline"
+              >
+                Ver direcciones →
+              </a>
+            </div>
           </div>
-          <div>
-            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">How can we help?</label>
-            <textarea id="message" name="message" rows="4" 
-              class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"></textarea>
+          <div class="h-96 relative">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3760.8984891234567!2d-99.14501636360053!3d19.50020501766202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f85c7a5b8b23%3A0x123456789abcdef!2sAv.%20Wilfrido%20Massieu%20399%2C%20Nueva%20Industrial%20Vallejo%2C%20Gustavo%20A.%20Madero%2C%2007700%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1234567890123!5m2!1ses!2smx"
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              class="w-full h-full"
+            ></iframe>
+            <!-- Overlay con información -->
+            <div class="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-white/20">
+              <p class="text-sm font-bold text-gray-900">ENCB - IPN</p>
+              <p class="text-xs text-gray-600">Laboratorio de Hormonas y Conducta</p>
+              <p class="text-xs text-blue-600 mt-1 font-medium">📍 Campus Zacatenco</p>
+            </div>
+            <!-- Botón de navegación -->
+            <div class="absolute top-4 right-4">
+              <a 
+                href="https://www.google.com/maps/dir//19.50020501766202,-99.14501636360053" 
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium transition-colors duration-200 flex items-center space-x-2"
+              >
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+                <span>Cómo llegar</span>
+              </a>
+            </div>
           </div>
-          <div>
-            <button type="submit" 
-              class="px-6 py-3 bg-green-600 text-white text-sm font-medium rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-              Get in touch
-            </button>
+        </div>
+      </div>
+
+      <!-- Sección de información adicional -->
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <!-- Transporte público -->
+        <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+          <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+            <span class="text-2xl mr-3">🚇</span>
+            Transporte Público
+          </h3>
+          <div class="space-y-3 text-sm text-gray-700">
+            <div class="flex items-center space-x-2">
+              <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+              <p><strong>Metro:</strong> Línea 6, Estación Instituto Politécnico</p>
+            </div>
+            <div class="flex items-center space-x-2">
+              <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+              <p><strong>Metrobús:</strong> Línea 6, Estación IPN</p>
+            </div>
+            <div class="flex items-center space-x-2">
+              <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+              <p><strong>Camión:</strong> Diversas rutas hacia Zacatenco</p>
+            </div>
           </div>
-        </form>
+        </div>
+
+        <!-- Estacionamiento -->
+        <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+          <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+            <span class="text-2xl mr-3">🚗</span>
+            Estacionamiento
+          </h3>
+          <div class="space-y-3 text-sm text-gray-700">
+            <div class="flex items-center space-x-2">
+              <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+              <p>Estacionamiento disponible en campus</p>
+            </div>
+
+            <div class="flex items-center space-x-2">
+              <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+              <p>Registro en caseta de acceso</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Áreas de trabajo -->
+        <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+          <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+            <span class="text-2xl mr-3">🔬</span>
+            Áreas de Trabajo
+          </h3>
+          <div class="space-y-3 text-sm text-gray-700">
+            <div class="flex items-center space-x-2">
+              <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+              <p>Neuroendocrinología</p>
+            </div>
+            <div class="flex items-center space-x-2">
+              <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+              <p>Docking Molecular</p>
+            </div>
+            <div class="flex items-center space-x-2">
+              <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+              <p>Análisis Conductual</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de áreas de colaboración disponibles -->
+      <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-8 border border-white/20 mb-16">
+        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+          Áreas de Colaboración Disponibles
+        </h3>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="flex items-center space-x-4 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
+            <span class="text-4xl">🧬</span>
+            <div>
+              <h4 class="font-bold text-gray-900 text-lg">Tesis de Licenciatura</h4>
+              <p class="text-sm text-gray-600 mt-1">Proyectos de investigación dirigidos</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-100">
+            <span class="text-4xl">🎓</span>
+            <div>
+              <h4 class="font-bold text-gray-900 text-lg">Tesis de Posgrado (Maestría y Doctorado)</h4>
+              <p class="text-sm text-gray-600 mt-1">Investigación avanzada especializada</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4 p-6 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl border border-purple-100">
+            <span class="text-4xl">🤝</span>
+            <div>
+              <h4 class="font-bold text-gray-900 text-lg">Colaboraciones</h4>
+              <p class="text-sm text-gray-600 mt-1">Proyectos interdisciplinarios</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call to action final -->
+      <div class="text-center bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">
+          ¿Listo para Visitarnos?
+        </h3>
+        <p class="text-gray-700 mb-6 max-w-2xl mx-auto">
+          Nuestro equipo estará encantado de recibirte y mostrarte nuestras instalaciones. 
+          Te recomendamos contactarnos previamente para coordinar tu visita.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a 
+            href="tel:5557296000" 
+            class="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-8 rounded-xl hover:from-blue-700 hover:to-purple-700 transform hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl flex items-center space-x-2"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+            </svg>
+            <span>Contactar por Teléfono</span>
+          </a>
+          <p class="text-sm text-gray-500">
+            Lunes a Viernes, 9:00 - 17:00 hrs
+          </p>
+        </div>
       </div>
     </div>
   </div>

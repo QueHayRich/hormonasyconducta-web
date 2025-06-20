@@ -1,21 +1,21 @@
 ---
-import { FaPills, FaClinicMedical, FaPager, FaCalendarAlt, FaClipboardCheck } from 'react-icons/fa';
+import { FaMicroscope, FaFlask, FaLaptopCode, FaChartLine, FaAtom } from 'react-icons/fa';
 
 const features = [
-  { icon: FaPills, title: 'Medication Adherence' },
-  { icon: FaClinicMedical, title: 'Checking clinical values (A1c, BP)' },
-  { icon: FaPager, title: 'Using medical devices' },
-  { icon: FaCalendarAlt, title: 'Attending provider appointments' },
-  { icon: FaClipboardCheck, title: 'Getting screenings and labs' },
+  { icon: FaMicroscope, title: 'Análisis Conductual en modelos murinos' },
+  { icon: FaFlask, title: 'Modelos Murinos de Diabetes Experimental' },
+  { icon: FaLaptopCode, title: 'Simulaciones de Docking y Dinámica Molecular' },
+  { icon: FaChartLine, title: 'Análisis Estadístico con R y Python' },
+  { icon: FaAtom, title: 'Síntesis y Caracterización de Nanopartículas' },
 ];
 
 ---
 
 <section class="bg-blue-700 py-20 text-white text-center">
   <div class="container mx-auto px-4">
-    <h2 class="text-4xl font-serif font-bold mb-4">Daily member engagement</h2>
+    <h2 class="text-4xl font-serif font-bold mb-4">Metodologías de Investigación</h2>
     <p class="text-xl mb-12 max-w-2xl mx-auto">
-      Your Company reaches and motivates individuals struggling to adhere to care plans, rewarding them for healthy behaviors.
+      Utilizamos técnicas experimentales y computacionales de vanguardia para el estudio integral de hormonas y conducta.
     </p>
 
     <div class="bg-white text-blue-700 rounded-lg shadow-lg p-8">
@@ -23,18 +23,18 @@ const features = [
         {features.map((feature) => (
           <div class="flex flex-col items-center">
             <feature.icon className="w-16 h-16 mb-4" />
-            <p class="text-sm font-semibold">{feature.title}</p>
+            <p class="text-sm font-semibold text-center">{feature.title}</p>
           </div>
         ))}
       </div>
     </div>
 
     <p class="text-xl mt-12 mb-8 max-w-2xl mx-auto">
-      Our science-backed platform is built on the principles of behavioral economics to work for the hardest-to-reach populations.
+      Nuestros métodos se basan en protocolos científicos validados, integrando enfoques interdisciplinarios para generar conocimiento de calidad.
     </p>
 
-    <a href="/platform" class="inline-block bg-white text-blue-700 font-bold py-3 px-8 rounded-full hover:bg-blue-100 transition duration-300">
-      Explore the Your Company platform
+    <a href="/investigacion" class="inline-block bg-white text-blue-700 font-bold py-3 px-8 rounded-full hover:bg-blue-100 transition duration-300">
+      Explorar nuestras líneas de investigación
     </a>
   </div>
 </section>

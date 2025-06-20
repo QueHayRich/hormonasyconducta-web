@@ -6,40 +6,197 @@ const { title } = frontmatter || {};
 ---
 
 <Layout title={title || 'Laboratorio de Hormonas y Conducta'}>
-  <div class="bg-gray-50 py-8">
-    <div class="container mx-auto px-4">
+  <!-- Header simple -->
+  <div class="bg-gradient-to-r from-gray-50 to-blue-50 border-b border-gray-200">
+    <div class="container mx-auto px-4 py-8">
       <nav class="text-sm text-gray-600 mb-4">
-        <a href="/" class="hover:text-blue-600">Inicio</a>
+        <a href="/" class="hover:text-blue-600 transition-colors">Inicio</a>
         <span class="mx-2">›</span>
-        <span class="text-gray-900">{title}</span>
+        <span class="text-gray-900 font-medium">{title}</span>
       </nav>
+      
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{title}</h1>
+      <div class="w-16 h-1 bg-blue-600 rounded"></div>
     </div>
   </div>
   
-  <div class="container mx-auto px-4 py-12">
-    <div class="max-w-4xl mx-auto prose prose-lg prose-blue">
-      <slot />
+  <!-- Contenido con estilo GitHub -->
+  <div class="bg-white min-h-screen">
+    <div class="container mx-auto px-4 py-12">
+      <div class="max-w-4xl mx-auto github-content">
+        <slot />
+      </div>
     </div>
   </div>
 </Layout>
 
 <style>
-  .prose h1 {
-    @apply text-4xl font-serif font-bold text-gray-900 mb-8;
+  /* Estilo GitHub para páginas estáticas */
+  .github-content {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #24292f;
   }
-  .prose h2 {
-    @apply text-2xl font-serif font-bold text-gray-800 mt-8 mb-4;
+
+  .github-content h1 {
+    margin: 0 0 24px 0;
+    font-weight: 600;
+    font-size: 2em;
+    color: #24292f;
+    border-bottom: 1px solid #d0d7de;
+    padding-bottom: 10px;
   }
-  .prose h3 {
-    @apply text-xl font-semibold text-gray-800 mt-6 mb-3;
+
+  .github-content h2 {
+    margin: 32px 0 16px 0;
+    font-weight: 600;
+    font-size: 1.5em;
+    color: #24292f;
+    border-bottom: 1px solid #d0d7de;
+    padding-bottom: 8px;
   }
-  .prose ul {
-    @apply space-y-2;
+
+  .github-content h3 {
+    margin: 24px 0 16px 0;
+    font-weight: 600;
+    font-size: 1.25em;
+    color: #24292f;
   }
-  .prose li {
-    @apply text-gray-700;
+
+  .github-content h4 {
+    margin: 20px 0 12px 0;
+    font-weight: 600;
+    font-size: 1em;
+    color: #24292f;
   }
-  .prose strong {
-    @apply text-blue-600 font-semibold;
+
+  .github-content p {
+    margin: 0 0 16px 0;
+    color: #24292f;
+    line-height: 1.6;
+  }
+
+  .github-content ul, .github-content ol {
+    margin: 0 0 16px 0;
+    padding-left: 2em;
+  }
+
+  .github-content li {
+    margin: 0.25em 0;
+    color: #24292f;
+    line-height: 1.5;
+  }
+
+  .github-content strong {
+    font-weight: 600;
+    color: #0969da;
+  }
+
+  .github-content a {
+    color: #0969da;
+    text-decoration: none;
+  }
+
+  .github-content a:hover {
+    text-decoration: underline;
+  }
+
+  .github-content code {
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(175, 184, 193, 0.2);
+    border-radius: 6px;
+    font-family: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+    color: #cf222e;
+    border: 1px solid #d0d7de;
+  }
+
+  .github-content pre {
+    margin: 16px 0;
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #ffffff;
+    border-radius: 6px;
+    border: 2px solid #d0d7de;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .github-content pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 100%;
+    color: #24292f;
+  }
+
+  .github-content blockquote {
+    margin: 0 0 16px 0;
+    padding: 0 1em;
+    color: #656d76;
+    border-left: 0.25em solid #d0d7de;
+    background: #f6f8fa;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .github-content table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 16px 0;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .github-content th, .github-content td {
+    padding: 6px 13px;
+    border-bottom: 1px solid #d0d7de;
+    border-right: 1px solid #d0d7de;
+  }
+
+  .github-content th:last-child, .github-content td:last-child {
+    border-right: none;
+  }
+
+  .github-content th {
+    font-weight: 600;
+    background-color: #f6f8fa;
+    color: #24292f;
+  }
+
+  .github-content tr:last-child td {
+    border-bottom: none;
+  }
+
+  .github-content tbody tr:hover {
+    background-color: #f6f8fa;
+  }
+
+  .github-content hr {
+    height: 0.25em;
+    padding: 0;
+    margin: 24px 0;
+    background-color: #d0d7de;
+    border: 0;
+    border-radius: 2px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .github-content {
+      font-size: 14px;
+    }
+    
+    .github-content h1 {
+      font-size: 1.75em;
+    }
+    
+    .github-content h2 {
+      font-size: 1.375em;
+    }
   }
 </style>

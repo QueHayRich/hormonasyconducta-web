@@ -1,41 +1,272 @@
 ---
 import { Image } from 'astro:assets';
-import logo1 from '../assets/logos/1.png';
-import logo2 from '../assets/logos/2.png';
-import logo3 from '../assets/logos/3.png';
-import logo4 from '../assets/logos/4.png';
-import logo5 from '../assets/logos/5.png';
-
-const partners = [
-  { name: "Fradel & Sons", logo: logo1 },
-  { name: "Wildwood Conservation", logo: logo2 },
-  { name: "Borcelle", logo: logo3 },
-  { name: "Maria Donna", logo: logo4 },
-  { name: "Ignite Bright", logo: logo5 },
-  { name: "Ignite Bright", logo: logo5 },
-  { name: "Borcelle", logo: logo3 },
-  { name: "Maria Donna", logo: logo4 },
-  { name: "Wildwood Conservation", logo: logo2 },
-  { name: "Fradel & Sons", logo: logo1 },
-  // Add more partners here
-];
+import logoHim from '../assets/logos/logo_him.png';
+import logoSemarnat from '../assets/logos/logo_semarnat.png';
+import logoIpn from '../assets/logos/logo_ipn.png';
 ---
 
-<section class="bg-white py-20">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-serif font-bold text-center mb-12">30 million daily check-ins</h2>
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-      {partners.map((partner) => (
-        <div class="flex items-center justify-center">
-          <Image 
-            src={partner.logo} 
-            alt="partner.name" 
-            class="rounded-lg"
-            width={128}
-            height={128}
-          />
-        </div>
-      ))}
+  <!-- Colaboraciones Institucionales - Nueva sección elegante -->
+  <section class="relative bg-gradient-to-br from-gray-50 via-white to-blue-50 py-24 overflow-hidden">
+    <!-- Elementos decorativos de fondo -->
+    <div class="absolute inset-0">
+      <!-- Círculos decorativos sutiles -->
+      <div class="absolute top-20 left-10 w-80 h-80 bg-blue-200/10 rounded-full blur-3xl animate-float-gentle"></div>
+      <div class="absolute bottom-20 right-10 w-72 h-72 bg-green-200/8 rounded-full blur-3xl animate-float-gentle-delayed"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-200/6 rounded-full blur-3xl"></div>
+      
+      <!-- Patrón de conexiones institucionales -->
+      <div class="absolute inset-0 opacity-5">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <pattern id="institutional-pattern" x="0" y="0" width="150" height="150" patternUnits="userSpaceOnUse">
+            <!-- Nodos institucionales -->
+            <circle cx="75" cy="75" r="5" fill="#3b82f6" opacity="0.6"/>
+            <circle cx="30" cy="30" r="3" fill="#10b981" opacity="0.5"/>
+            <circle cx="120" cy="120" r="3" fill="#8b5cf6" opacity="0.5"/>
+            <circle cx="30" cy="120" r="2.5" fill="#f59e0b" opacity="0.4"/>
+            <circle cx="120" cy="30" r="2.5" fill="#ef4444" opacity="0.4"/>
+            <!-- Conexiones de colaboración -->
+            <line x1="75" y1="75" x2="30" y2="30" stroke="#3b82f6" stroke-width="2" opacity="0.3"/>
+            <line x1="75" y1="75" x2="120" y2="120" stroke="#3b82f6" stroke-width="2" opacity="0.3"/>
+            <line x1="75" y1="75" x2="30" y2="120" stroke="#10b981" stroke-width="1.5" opacity="0.25"/>
+            <line x1="75" y1="75" x2="120" y2="30" stroke="#8b5cf6" stroke-width="1.5" opacity="0.25"/>
+          </pattern>
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#institutional-pattern)"/>
+        </svg>
+      </div>
     </div>
-  </div>
-</section>
+    
+    <div class="relative z-10 container mx-auto px-4">
+      <div class="max-w-7xl mx-auto">
+        <!-- Header de la sección -->
+        <div class="text-center mb-20">
+          <div class="mb-6">
+            <span class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-sm font-semibold shadow-lg">
+              🤝 Colaboraciones Estratégicas
+            </span>
+          </div>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+            Colaboraciones <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Institucionales</span>
+          </h2>
+          <p class="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+            Trabajamos en alianza estratégica con instituciones líderes en <strong class="text-blue-600">salud</strong>, 
+            <strong class="text-green-600">medio ambiente</strong> y <strong class="text-purple-600">educación superior</strong> 
+            para potenciar el impacto de nuestra investigación.
+          </p>
+        </div>
+        
+        <!-- Grid de colaboraciones institucionales -->
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <!-- Hospital Infantil de México -->
+          <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-gray-100 overflow-hidden">
+            <!-- Elemento decorativo superior -->
+            <div class="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-red-400 to-pink-500 rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300"></div>
+            
+            <!-- Logo y contenido -->
+            <div class="relative z-10">
+              <!-- Logo Container -->
+              <div class="flex justify-center mb-6">
+                <div class="w-32 h-32 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Image src={logoHim} alt="Hospital Infantil de México" class="w-full h-full object-contain" width={120} height={120} />
+                </div>
+              </div>
+              
+              <!-- Información -->
+              <div class="text-center">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors">
+                  Hospital Infantil de México
+                </h3>
+                <p class="text-lg font-semibold text-red-600 mb-4">
+                  "Federico Gómez"
+                </p>
+                <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                  Secretaría de Salud
+                </p>
+                
+                <!-- Áreas de colaboración -->
+                <div class="space-y-2">
+                  <div class="inline-block bg-red-50 text-red-700 px-3 py-1 rounded-full text-xs font-medium mr-2 mb-2">
+                    🏥 Investigación Clínica
+                  </div>
+                  <div class="inline-block bg-pink-50 text-pink-700 px-3 py-1 rounded-full text-xs font-medium mr-2 mb-2">
+                    👶 Pediatría Endocrina
+                  </div>
+                  <div class="inline-block bg-red-50 text-red-700 px-3 py-1 rounded-full text-xs font-medium mr-2 mb-2">
+                    🧬 Estudios Hormonales
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Indicador de impacto -->
+              <div class="mt-6 pt-4 border-t border-gray-200">
+                <div class="flex justify-center">
+                  <div class="h-1 w-20 bg-gradient-to-r from-red-500 to-pink-500 rounded-full"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- SEMARNAT - CON LOGO EXTRA GRANDE -->
+          <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-gray-100">
+            <!-- Elemento decorativo superior -->
+            <div class="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300"></div>
+            
+            <!-- Logo y contenido -->
+            <div class="relative z-10">
+              <!-- Logo Container - LOGO EXTRA GRANDE CON CSS PERSONALIZADO -->
+              <div class="flex justify-center mb-6 relative">
+                <div class="w-32 h-32 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Image src={logoSemarnat} alt="SEMARNAT" class="semarnat-logo object-contain relative z-20" width={300} height={300} />
+                </div>
+              </div>
+              
+              <!-- Información -->
+              <div class="text-center">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">
+                  Secretaría de Medio Ambiente
+                </h3>
+                <p class="text-lg font-semibold text-green-600 mb-4">
+                  y Recursos Naturales
+                </p>
+                <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                  SEMARNAT
+                </p>
+                
+                <!-- Áreas de colaboración -->
+                <div class="space-y-2">
+                  <div class="inline-block bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs font-medium mr-2 mb-2">
+                    🌱 Ecotoxicología
+                  </div>
+                  <div class="inline-block bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-medium mr-2 mb-2">
+                    🌍 Impacto Ambiental
+                  </div>
+                  <div class="inline-block bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs font-medium mr-2 mb-2">
+                    🔬 Biomarcadores
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Indicador de impacto -->
+              <div class="mt-6 pt-4 border-t border-gray-200">
+                <div class="flex justify-center">
+                  <div class="h-1 w-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Instituto Politécnico Nacional -->
+          <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-gray-100 overflow-hidden">
+            <!-- Elemento decorativo superior -->
+            <div class="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300"></div>
+            
+            <!-- Logo y contenido -->
+            <div class="relative z-10">
+              <!-- Logo Container -->
+              <div class="flex justify-center mb-6">
+                <div class="w-32 h-32 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Image src={logoIpn} alt="Instituto Politécnico Nacional" class="w-full h-full object-contain" width={120} height={120} />
+                </div>
+              </div>
+              
+              <!-- Información -->
+              <div class="text-center">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                  Instituto Politécnico
+                </h3>
+                <p class="text-lg font-semibold text-purple-600 mb-4">
+                  Nacional
+                </p>
+                <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                  IPN
+                </p>
+                
+                <!-- Áreas de colaboración -->
+                <div class="space-y-2">
+                  <div class="inline-block bg-purple-50 text-purple-700 px-3 py-1 rounded-full text-xs font-medium mr-2 mb-2">
+                    🔬 Química Teórica
+                  </div>
+                  <div class="inline-block bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium mr-2 mb-2">
+                    💻 Modelado Molecular
+                  </div>
+                  <div class="inline-block bg-purple-50 text-purple-700 px-3 py-1 rounded-full text-xs font-medium mr-2 mb-2">
+                    📊 Software Científico
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Indicador de impacto -->
+              <div class="mt-6 pt-4 border-t border-gray-200">
+                <div class="flex justify-center">
+                  <div class="h-1 w-20 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Estadísticas de impacto de colaboraciones -->
+        <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-8 text-center text-white">
+          <h3 class="text-2xl font-bold mb-6">Impacto de Nuestras Colaboraciones</h3>
+          <div class="grid md:grid-cols-4 gap-6">
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+              <div class="text-3xl font-bold mb-2">15+</div>
+              <div class="text-sm text-blue-100">Proyectos Conjuntos</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+              <div class="text-3xl font-bold mb-2">8</div>
+              <div class="text-sm text-blue-100">Publicaciones Colaborativas</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+              <div class="text-3xl font-bold mb-2">25+</div>
+              <div class="text-sm text-blue-100">Investigadores Involucrados</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+              <div class="text-3xl font-bold mb-2">5</div>
+              <div class="text-sm text-blue-100">Años de Colaboración</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<style>
+  /* Animaciones para los elementos flotantes */
+  @keyframes float-gentle {
+    0%, 100% { 
+      transform: translateY(0px) translateX(0px) rotate(0deg); 
+      opacity: 0.2;
+    }
+    50% { 
+      transform: translateY(-15px) translateX(8px) rotate(3deg); 
+      opacity: 0.3;
+    }
+  }
+  
+  @keyframes float-gentle-delayed {
+    0%, 100% { 
+      transform: translateY(0px) translateX(0px) rotate(0deg); 
+      opacity: 0.15;
+    }
+    50% { 
+      transform: translateY(-20px) translateX(-10px) rotate(-2deg); 
+      opacity: 0.25;
+    }
+  }
+  
+  .animate-float-gentle {
+    animation: float-gentle 15s ease-in-out infinite;
+  }
+  
+  .animate-float-gentle-delayed {
+    animation: float-gentle-delayed 18s ease-in-out infinite;
+  }
+  
+  /* CLASE PERSONALIZADA PARA EL LOGO DE SEMARNAT */
+  .semarnat-logo {
+    width: 320px !important;
+    height: 320px !important;
+    max-width: none !important;
+    max-height: none !important;
+  }
+</style>
