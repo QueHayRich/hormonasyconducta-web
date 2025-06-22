@@ -41,8 +41,8 @@ const teamMembers: TeamMember[] = [
     description: 'Investigador principal especializado en el estudio de las interacciones entre hormonas y conducta. Líder en investigación de diabetes experimental y sus efectos neurocomportamentales.',
     email: 'tfregoso@ipn.mx',
     orcid: '0000-0003-0824-1792',
-    showOrcid: true, // ← true = mostrar, false = ocultar
-    image: '/team/dr-tomas.jpg',
+    showOrcid: true,
+    image: getBaseUrl() + 'team/dr-tomas.jpg', // ✅ Usar getBaseUrl()
     publications: 25,
     yearsInLab: 15
   },
@@ -56,8 +56,8 @@ const teamMembers: TeamMember[] = [
     description: 'Especialista en métodos computacionales aplicados a la investigación biomédica. Pionera en el uso de técnicas de docking molecular para el estudio de interacciones hormonales.',
     email: 'dnicolas@ipn.mx',
     orcid: '0000-0002-1717-9081',
-    showOrcid: true, // ← true = mostrar, false = ocultar
-    image: '/team/dra-nicolas.png',
+    showOrcid: true,
+    image: getBaseUrl() + 'team/dra-nicolas.png', // ✅ Usar getBaseUrl()
     publications: 18,
     yearsInLab: 8
   },
@@ -73,7 +73,7 @@ const teamMembers: TeamMember[] = [
     description: 'Desarrollando su tesis de licenciatura en técnicas avanzadas de docking y dinámica molecular para el estudio de interacciones proteína-ligando.',
     currentProject: 'Análisis computacional de interacciones hormonales mediante docking molecular',
     techniques: ['AutoDock', 'GROMACS', 'PyMOL', 'VMD'],
-    image: '/team/april.png',
+    image: getBaseUrl() + 'team/april.png', // ✅ Usar getBaseUrl()
     yearsInLab: 2
   },
   {
@@ -86,7 +86,7 @@ const teamMembers: TeamMember[] = [
     description: 'Investigando los efectos de extractos fúngicos en modelos murinos, integrando análisis histológico con evaluación conductual para comprender mecanismos de acción.',
     currentProject: 'Evaluación de extractos de hongos en modelo murino: análisis histológico y conductual',
     techniques: ['Histología', 'Laberinto de Barnes', 'Campo Abierto', 'Extracción'],
-    image: '/team/fernanda.png',
+    image: getBaseUrl() + 'team/fernanda.png', // ✅ Usar getBaseUrl()
     yearsInLab: 1.5
   },
   {
@@ -99,7 +99,7 @@ const teamMembers: TeamMember[] = [
     description: 'Enfocado en la caracterización de compuestos bioactivos de plantas mexicanas con potencial terapéutico en trastornos metabólicos.',
     currentProject: 'Caracterización fitoquímica de extractos vegetales con actividad antidiabética',
     techniques: ['Extracción vegetal', 'Cromatografía', 'Bioensayos', 'Análisis fitoquímico'],
-    image: '/team/sebastian.png',
+    image: getBaseUrl() + 'team/sebastian.png', // ✅ Usar getBaseUrl()
     yearsInLab: 1
   },
   {
@@ -112,10 +112,10 @@ const teamMembers: TeamMember[] = [
     description: 'Colaborador posdoctoral especializado en técnicas avanzadas de neurobiología molecular y análisis de big data en investigación endocrina.',
     currentProject: 'Integración de datos ómicos en estudios neuroendocrinos',
     techniques: ['RNA-seq', 'Proteómica', 'Machine Learning', 'Estadística Avanzada'],
-    image: '/team/richie.png',
+    image: getBaseUrl() + 'team/richie.png', // ✅ Usar getBaseUrl()
     email: 'ricardoaguilargaray@gmail.com',
     orcid: '0000-0002-3566-1330',
-    showOrcid: true,      // ← true = mostrar, false = ocultar
+    showOrcid: true,
     yearsInLab: 0.5
   }
 ];
